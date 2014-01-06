@@ -36,9 +36,51 @@ namespace fanqieWPF
             }
         }
 
+        private void label1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tabChanged(All_TODO);
+        }
+
+        private void label2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tabChanged(TODAY);
+ 
+        }
+
+        private void label3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            tabChanged(START);
+        }
+
+        private void tabChanged(TextBlock text) 
+        {
+            FontWeight normalFontWeight = (FontWeight)System.ComponentModel.TypeDescriptor.GetConverter(typeof(FontWeight)).ConvertFromString("Normal");
+            All_TODO.FontWeight = normalFontWeight;
+            TODAY.FontWeight = normalFontWeight;
+            START.FontWeight = normalFontWeight;
+
+            text.FontWeight = (FontWeight)System.ComponentModel.TypeDescriptor.GetConverter(typeof(FontWeight)).ConvertFromString("Bold");
+        }
+
+        private void image1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        //recentTODO.FontWeight = (FontWeight)System.ComponentModel.TypeDescriptor.GetConverter(typeof(FontWeight)).ConvertFromString("Bold");
+
+        /* 
+        private void recentTODO_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) 
+            {
+                recentTODO.FontWeight = (FontWeight)System.ComponentModel.TypeDescriptor.GetConverter(typeof(FontWeight)).ConvertFromString("Bold");
+            }            
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Hello world");
         }
+         */
     }
 }
